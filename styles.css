@@ -1,0 +1,63 @@
+/* UNIVERSAL STYLES */
+
+html {
+    font-family: "Libre Franklin";
+    font-size: 16px;
+    background-color: #f4f2f6;
+    color: #010101;
+}
+
+
+button,
+.button {
+    padding: 0.5rem 1rem;
+    margin: 0 1rem;
+    border: 2px solid #856fab;
+    border-radius: 2rem;
+    background-color: #f1f1f2;
+    color: #856fab;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: all 200ms ease-in-out;
+}
+
+button:hover,
+.button:hover {
+    color: #6D5E61;
+    background-color: #c9e99c;
+    border: 2px solid #c9e99c;
+}
+
+button:active,
+.button:active {
+    color: #6D5E61;
+    background-color: #c9e99c;
+    border: 2px solid #c9e99c;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: "Poppins";
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+h4 {
+    font-size: 1.25rem;
+    font-weight: 500;
+}
