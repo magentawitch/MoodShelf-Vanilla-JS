@@ -84,7 +84,7 @@ let bookRecList = undefined;
 async function displayBookRecommendation() {
     const bookRecommendationList = await bookRecList;
     const randomListId = Math.floor(Math.random() * bookRecommendationList.length);
-    bookCover.setAttribute("src", bookRecommendationList[randomListId].coverImage);
+    bookCover.setAttribute("src", bookRecommendationList[randomListId].coverImage || "https://placecats.com/g/200/300");
     bookTitle.innerHTML = bookRecommendationList[randomListId].title || "No title available";
     bookAuthor.innerHTML = bookRecommendationList[randomListId].author || "No Author available";
     newBookButton.style.display = "block";
