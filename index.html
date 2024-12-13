@@ -3,9 +3,7 @@
 <html lang="en-us">
 
 <head>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&family=Karla:ital,wght@0,200..800;1,200..800&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Madimi+One&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Saira+Semi+Condensed:wght@100;200;300;400;500;600;700;800;900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="icon"
@@ -26,9 +24,9 @@
     </header>
     <!-- MAIN -->
     <main>
-        <div id="searchBar">
+        <div class="searchBar">
             <form  onSubmit="return false;">
-                <input type="text" placeholder="What mood are you looking for?" id="moodInput" value="" required>
+                <input type="text" placeholder="Type a mood" id="moodInput" value="" required>
                 <button id="submit">Search Books!</button>
             </form>
         </div>
@@ -37,11 +35,10 @@
                 <img src="" id="bookCover">
             </div>
             <div class="bookInfo">
-                <h2 id="bookTitle">Title</h2>
-                <h3 id="bookAuthor">Author</h3>
+                <h2 id="bookTitle"></h2>
+                <h3 id="bookAuthor"></h3>
             </div>
             <button id="newBookButton">Another Book</button>
-
         </div>
     </main>
 

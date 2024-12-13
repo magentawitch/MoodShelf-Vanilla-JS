@@ -1,9 +1,9 @@
 /* UNIVERSAL STYLES */
 
 html {
-    font-family: "Libre Franklin";
+    font-family: "Work Sans";
     font-size: 16px;
-    background-color: #f4f2f6;
+    background-color: #deebec;
     color: #010101;
 }
 
@@ -12,27 +12,27 @@ button,
 .button {
     padding: 0.5rem 1rem;
     margin: 0 1rem;
-    border: 2px solid #856fab;
-    border-radius: 2rem;
-    background-color: #f1f1f2;
-    color: #856fab;
-    font-size: 1.2rem;
+    border: 2px solid #3c979f;
+    border-radius: 1rem;
+    background-color: #deebec;
+    color: #3c979f;
+    font-size: 1rem;
     font-weight: 500;
     transition: all 200ms ease-in-out;
 }
 
 button:hover,
 .button:hover {
-    color: #6D5E61;
-    background-color: #c9e99c;
-    border: 2px solid #c9e99c;
+    color: #deebec;
+    background-color: #3c979f;
+    border: 2px solid #3c979f;
 }
 
 button:active,
 .button:active {
-    color: #6D5E61;
-    background-color: #c9e99c;
-    border: 2px solid #c9e99c;
+    color: #deebec;
+    background-color: #3c979f;
+    border: 2px solid #3c979f;
 }
 
 h1,
@@ -40,7 +40,7 @@ h2,
 h3,
 h4,
 h5 {
-    font-family: "Poppins";
+    font-family: "Josefina Sans";
 }
 
 h1 {
@@ -60,4 +60,89 @@ h3 {
 h4 {
     font-size: 1.25rem;
     font-weight: 500;
+}
+
+/* HEADER */
+
+#logoContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#logoContent #logo {
+    font-family: "Saira Semi Condensed";
+    font-weight: 600;
+    font-size: 4.5rem;
+    padding: 2rem .5rem;
+}
+
+#logo #accent {
+    text-decoration: underline;
+
+}
+
+/* SEARCH BAR */
+
+.searchBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: .5rem 0;
+}
+
+.searchBar form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+form #moodInput {
+    padding: .5rem 4rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    border: 2px solid #768181;
+    
+}
+
+form #moodInput:focus {
+    border: 1px solid #73b3b2;
+    outline: 1px solid #73b3b2;
+}
+
+
+
+/* BOOK INFO FIELD */
+
+.bookRecommendation {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.bookRecommendation .bookInfo {
+    text-align: center;
+    margin: .5rem 1rem 1rem 1rem;
+    line-height: 1.2;
+    max-width: 27rem;
+}
+
+.bookRecommendation .imageContainer {
+    max-width: 12.5rem;
+    max-height: 18.75rem;
+}
+
+.imageContainer img {
+    display: block;
+    width: 100%;
+}
+
+#newBookButton {
+    display: none;
 }
