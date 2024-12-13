@@ -143,6 +143,14 @@ form #moodInput:focus {
     width: 100%;
 }
 
-#newBookButton {
+.searchButtons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#newBookButton,
+#newSearchButton {
     display: none;
+    margin: 1rem;
 }

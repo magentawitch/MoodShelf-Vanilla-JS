@@ -7,6 +7,8 @@ const dictionaryBaseUrl = "https://api.datamuse.com/words?rel_syn=";
 const moodInput = document.getElementById("moodInput");
 const submit = document.getElementById("submit");
 const newBookButton = document.getElementById("newBookButton")
+const newSearchButton = document.getElementById("newSearchButton");
+const bookRecommendationField = document.querySelector(".bookRecommendation");
 const textField = document.getElementById("bookInfo")
 const bookTitle = document.getElementById("bookTitle");
 const bookAuthor = document.getElementById("bookAuthor");
@@ -86,6 +88,15 @@ async function displayBookRecommendation() {
     bookTitle.innerHTML = bookRecommendationList[randomListId].title || "No title available";
     bookAuthor.innerHTML = bookRecommendationList[randomListId].author || "No Author available";
     newBookButton.style.display = "block";
+    newSearchButton.style.display = "block";
+}
+
+async function clearRecommendation() {
+    bookCover.setAttribute("src","");
+    bookTitle.innerHTML = "";
+    bookAuthor.innerHTML = "";
+    newBookButton.style.display = "";
+    newSearchButton.style.display = "";
 }
 
 /* //Response Render Function
@@ -100,5 +111,18 @@ async function renderResponse(response) {
 } */
 
 //EVENT LISTENER
-submit.addEventListener("click", async () => {bookRecList = await getBookRecommendation(); await displayBookRecommendation(bookRecList)})
-newBookButton.addEventListener("click", () => displayBookRecommendation() )
+submit.addEventListener("click", async () => {
+    bookRecList = await getBookRecommendation(); 
+    await displayBookRecommendation(bookRecList);
+    moodInput.style.display = "none";
+    submit.style.display = "none";
+});
+
+newBookButton.addEventListener("click", () => displayBookRecommendation());
+
+newSearchButton.addEventListener("click", async () => {
+    moodInput.value = "";
+    moodInput.style.display = "";
+    submit.style.display = "";
+    await clearRecommendation();
+})
