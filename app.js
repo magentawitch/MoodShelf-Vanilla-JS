@@ -3,9 +3,10 @@ const gBooksKey = "AIzaSyA5MX7bf3T8Si3mUPkxSo14wp4Gjx4XIXA";
 const gBooksBaseUrl = "https://www.googleapis.com/books/v1/volumes?q=";
 const dictionaryBaseUrl = "https://api.datamuse.com/words?rel_syn=";
 
-//Page Elements
+//PAGE ELEMENTS
 const moodInput = document.getElementById("moodInput");
 const submit = document.getElementById("submit");
+const errorMessage = document.getElementById("errorMessage");
 const newBookButton = document.getElementById("newBookButton")
 const newSearchButton = document.getElementById("newSearchButton");
 const bookRecommendationField = document.querySelector(".bookRecommendation");
@@ -13,6 +14,7 @@ const textField = document.getElementById("bookInfo")
 const bookTitle = document.getElementById("bookTitle");
 const bookAuthor = document.getElementById("bookAuthor");
 const bookCover = document.getElementById("bookCover");
+
 
 
 
@@ -55,7 +57,7 @@ async function getBookRecommendation() {
 
     for (let i = 0; i < searchQuery.length; i++) {
         let word = searchQuery[i];
-        const endpoint = `${gBooksBaseUrl}${word}+&key=${gBooksKey}`;
+        const endpoint = `${gBooksBaseUrl}${word}+subject:fiction&key=${gBooksKey}`;
 
         try {
             const response = await fetch(endpoint);
@@ -81,6 +83,8 @@ async function getBookRecommendation() {
 
 let bookRecList = undefined;
 
+//DISPLAY BOOK RECOMMENDATION & SEARCH BAR
+
 async function displayBookRecommendation() {
     const bookRecommendationList = await bookRecList;
     const randomListId = Math.floor(Math.random() * bookRecommendationList.length);
@@ -99,19 +103,45 @@ async function clearRecommendation() {
     newSearchButton.style.display = "";
 }
 
-/* //Response Render Function
-async function renderResponse(response) {
-    if (!response.length) {
-        textField.innerHTML = "<p>Try again!</p><p>There were no suggestions found.</p>"
-        return
-    }
-    
-    let wordList = [];
+//PREDEFINED MOOD CHECK
 
-} */
+const predefinedMoods = [
+    "happy", "sad", "excited", "calm", "romantic", "adventurous", "angry", 
+    "hopeful", "nostalgic", "curious", "motivated", "relaxed", "anxious", 
+    "lonely", "content", "cheerful", "melancholy", "grateful", "fearful", 
+    "playful", "energetic", "bored", "inspired", "confident", "sentimental",
+    "joyful", "pensive", "giddy", "wistful", "optimistic", "moody", "tranquil", 
+    "mysterious", "heartbroken", "flirty", "festive", "proud", "restless", 
+    "imaginative", "cozy", "thoughtful", "determined", "in love", "love"
+];
+
+//VALIDATE MOOD
+function isValidMood(mood) {
+    const userMood = mood.toLowerCase().trim();
+    return predefinedMoods.includes(userMood);
+}
+
+//DISPLAY-HIDE ERROR
+function showError(message) {
+    errorMessage.innerHTML = message;
+    errorMessage.style.display = "block";
+}
+
+function hideError() {
+    errorMessage.style.display = "none";
+}
+
+
 
 //EVENT LISTENER
 submit.addEventListener("click", async () => {
+    const userMood = moodInput.value;
+    if (!isValidMood(userMood)) {
+        showError("Please input a valid mood from the list: " + predefinedMoods.join(", "))
+        return
+    }
+    hideError();
+
     bookRecList = await getBookRecommendation(); 
     await displayBookRecommendation(bookRecList);
     moodInput.style.display = "none";
