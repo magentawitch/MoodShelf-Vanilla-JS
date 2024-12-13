@@ -20,24 +20,27 @@
 <body>
     <!-- HEADER -->
     <header>
-        <div id="title-logo">
-            <h1>MoodShelf</h1>
+        <div id="logoContent">
+            <a href="index.html" id="logo">Mood<span id="accent">Shelf</span></a>
         </div>
     </header>
     <!-- MAIN -->
     <main>
-        <div id="search-bar">
-            <form>
-                <input type="text" placeholder="What mood are you looking for?" id="mood-input" value="" required>
+        <div id="searchBar">
+            <form  onSubmit="return false;">
+                <input type="text" placeholder="What mood are you looking for?" id="moodInput" value="" required>
                 <button id="submit">Search Books!</button>
             </form>
         </div>
-        <div class="book-recommendation">
-            <div class="image-container">
-                <img src="" id="book-cover">
+        <div class="bookRecommendation">
+            <div class="imageContainer">
+                <img src="" id="bookCover">
             </div>
-            <h2 id="book-tiitle">Title</h2>
-            <h3 id="book-author">Author</h3>
+            <div class="bookInfo">
+                <h2 id="bookTitle">Title</h2>
+                <h3 id="bookAuthor">Author</h3>
+            </div>
+            <button id="newBookButton">Another Book</button>
 
         </div>
     </main>
@@ -47,6 +50,6 @@
 
 </body>
 
-<script src=""></script>
+<script src="app.js"></script>
 
 </html>
