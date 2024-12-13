@@ -123,6 +123,29 @@ form #moodInput:focus {
    text-align: center;
 }
 
+#loading {
+    width: 2rem;
+    height: 2rem;
+    border: 5px solid #010101;
+    border-top: 6px solid #010101;
+    margin: 2rem auto;
+    visibility: hidden;
+    animation: spin 1.5s infinite linear;
+}
+
+#loading.display {
+    visibility: visible;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 
 
 /* BOOK INFO FIELD */

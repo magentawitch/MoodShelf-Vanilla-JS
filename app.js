@@ -7,6 +7,7 @@ const dictionaryBaseUrl = "https://api.datamuse.com/words?rel_syn=";
 const moodInput = document.getElementById("moodInput");
 const submit = document.getElementById("submit");
 const errorMessage = document.getElementById("errorMessage");
+const loader = document.getElementById("loading");
 const newBookButton = document.getElementById("newBookButton")
 const newSearchButton = document.getElementById("newSearchButton");
 const bookRecommendationField = document.querySelector(".bookRecommendation");
@@ -54,6 +55,7 @@ async function getBookRecommendation() {
     const searchQuery = await buildSearchQuery(moodInput, await getMoodSynonym(moodInput));
     console.log(searchQuery);
     const bookList = [];
+    displayLoading()
 
     for (let i = 0; i < searchQuery.length; i++) {
         let word = searchQuery[i];
@@ -76,6 +78,7 @@ async function getBookRecommendation() {
             console.log(error);
         }
     }
+    hideLoading()
     console.log(bookList)
     return bookList;
 }
@@ -131,6 +134,15 @@ function hideError() {
     errorMessage.style.display = "none";
 }
 
+//DISPLAY-HIDE LOADING
+
+function displayLoading() {
+    loader.classList.add("display");
+}
+
+function hideLoading() {
+    loader.classList.remove("display");
+}
 
 
 //EVENT LISTENER
