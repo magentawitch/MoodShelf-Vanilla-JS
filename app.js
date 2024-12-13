@@ -77,10 +77,10 @@ async function getBookRecommendation() {
 }
 
 
-
+let bookRecList = undefined;
 
 async function displayBookRecommendation() {
-    const bookRecommendationList = await getBookRecommendation();
+    const bookRecommendationList = await bookRecList;
     const randomListId = Math.floor(Math.random() * bookRecommendationList.length);
     bookCover.setAttribute("src", bookRecommendationList[randomListId].coverImage);
     bookTitle.innerHTML = bookRecommendationList[randomListId].title || "No title available";
@@ -100,5 +100,5 @@ async function renderResponse(response) {
 } */
 
 //EVENT LISTENER
-submit.addEventListener("click", () => displayBookRecommendation())
+submit.addEventListener("click", async () => {bookRecList = await getBookRecommendation(); await displayBookRecommendation(bookRecList)})
 newBookButton.addEventListener("click", () => displayBookRecommendation() )
