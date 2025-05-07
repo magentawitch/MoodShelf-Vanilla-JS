@@ -2,7 +2,7 @@
 
 MoodShelf is a web app that recommends books based on your mood. You type how you’re feeling, and it finds books that match that vibe using the Google Books API and the Datamuse API for mood-related keywords.
 
-This is the original version of the app, built with **HTML, CSS, and plain JavaScript** — no frameworks.
+This is the original version of the app, built with **HTML, CSS, and plain JavaScript** — no frameworks. Uses Google Books API and Datamuse API.
 
 ---
 
